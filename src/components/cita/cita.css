@@ -1,0 +1,47 @@
+.cita {
+    border       : 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    display      : table;
+    width        : 100%;
+}
+
+.cita>div {
+    display   : table-cell;
+    text-align: center;
+}
+
+.cita>div:not(:last-child) {
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    line-height : 60px;
+}
+
+.cita .day {
+    width: 120px;
+}
+
+.cita .hour {
+    width: 75px;
+}
+
+.cita .pet,
+.owner,
+.description {
+    max-width: 370px;
+}
+
+.cita .delete {
+    width: 100px;
+}
+.cita .delete button {
+   background-color: rgb(223, 64, 64);
+   border: 1px solid rgb(95, 95, 95);
+   border-radius: 4px;
+   color: #fff;
+   cursor: pointer;
+   padding: 10px;
+   transition: 0.2s;
+   width: 70px;
+}
+.cita .delete button:hover {
+    background-color: rgb(228, 113, 113);
+ }

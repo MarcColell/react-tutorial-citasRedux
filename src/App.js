@@ -1,25 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Provider } from 'react-redux';
+
+// Le damos un alias a Browser
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import About from './components/about/about';
+import Gallery from './components/gallery/gallery';
+
 import './App.css';
+import Header from './layout/header';
+import Form from './components/form/form';
+import Store from './store';
+import List from './components/list/list';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={Store}>
+      <Router>
+        <div className="page">
+          <Header />
+          <div className="content-page">
+            <Switch>
+              <Route exact path="/about" component={About} />
+              <Route exact path="/gallery" component={Gallery} />
+              <Route path="">
+                <div className="title-page">
+                  Administrador de pacientes
+                </div>
+                <Form />
+                <div className="title-page">
+                  Listado de pacientes
+                </div>
+                <List />
+              </Route>
+            </Switch>
+          </div>
+        </div>
+      </Router>
+    </Provider>
   );
 }
 
